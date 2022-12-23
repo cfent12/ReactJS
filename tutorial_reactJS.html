@@ -8,15 +8,34 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
+
+    /// reactJS ver1
     /* const h3 = React.createElement("h3", {id: "title", onMouseEnter: () => console.log("mouse enter")}, "Hello");
-    const btn = React.createElement("button", {id: "click", onClick: () => console.log("clicked"), style: {backgroundColor: "tomato"}}, "Click me"); */
-    function Title() {
+    const btn = React.createElement("button", {id: "click", onClick: () => console.log("clicked"), style: {backgroundColor: "tomato"}}, "Click me");
+    const container = React.createElement("div", null, [h3, btn]);
+    ReactDOM.render(container, root); */
+
+    /// ver1 -> JSX
+    /* function Title() {
         return (<h3 id="title" onMouseEnter={() => console.log("mouse enter")}>Hello</h3>);
     }
     const Button = () => <button id="click" style={{backgroundColor: "tomato"}} onClick={() => console.log("clicked")}>Click me</button>;
-    /* const container = React.createElement("div", null, [h3, btn]); */
-    const Container = () => <div><Title /><Button /></div>
-    /* ReactDOM.render(container, root); */
-    ReactDOM.render(<Container />, root);
+    const Container = () => <div><Title /><Button /></div>;
+    ReactDOM.render(<Container />, root); */
+
+    /// reactJS ver2
+    function App() {
+        const [counter, setCounter] = React.useState(0);
+        const onCilck = () => {
+            setCounter(counter + 1);
+        }
+        return (
+            <div>
+                <h3>Total clicks: {counter}</h3>
+                <button onClick={onCilck}>Click me</button>
+            </div>
+        );
+    }
+    ReactDOM.render(<App />, root);
 </script>
 </html>
